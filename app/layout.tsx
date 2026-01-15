@@ -41,28 +41,20 @@ export const metadata: Metadata = {
     siteName: 'NW Counselling',
     locale: 'en_GB',
     type: 'website',
-    images: [
-      {
-        url: '/images/og-homepage.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'NW Counselling - Online therapy for adults',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'NW Counselling | Online Therapy for Adults in the UK',
     description:
       'Warm, personal online counselling for adults across the UK. I help with anxiety, ADHD, autism, grief, and life\'s difficult transitions.',
-    images: ['/images/og-homepage.jpg'],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/icon.svg',
+    apple: '/apple-icon.png',
   },
 }
 
