@@ -41,6 +41,8 @@ ADHD also affects much more than attention. It shapes how you experience time, h
 
 These aren't occasional difficulties everyone experiences. For people with ADHD, they're persistent patterns that have been present since childhood—even if no one recognised them at the time.
 
+<!-- DIAGRAM: iceberg -->
+
 ---
 
 ## Late diagnosis: why so many adults are only discovering this now
