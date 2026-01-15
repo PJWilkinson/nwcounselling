@@ -1,7 +1,5 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
-
 export const alt = 'NW Counselling - Online therapy for adults in the UK'
 export const size = {
   width: 1200,

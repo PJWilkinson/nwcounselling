@@ -3,49 +3,9 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Button from '@/components/Button'
 import SectionLabel from '@/components/SectionLabel'
+import GuideContent from '@/components/GuideContent'
 import { getGuideBySlug, getAllGuideSlugs, parseMarkdown } from '@/lib/guides'
 import { GUIDES } from '@/lib/constants'
-import ADHDChemistry from '@/components/diagrams/ADHDChemistry'
-import ADHDIceberg from '@/components/diagrams/ADHDIceberg'
-
-// Component to render guide content with embedded diagrams
-function GuideContent({ htmlContent, slug }: { htmlContent: string; slug: string }) {
-  // For the ADHD guide, we insert diagrams at specific placeholder markers
-  if (slug === 'understanding-adhd-guide') {
-    // Split content at diagram placeholders
-    const parts = htmlContent.split(/<!--\s*DIAGRAM:\s*(chemistry|iceberg)\s*-->/i)
-    
-    return (
-      <article className="prose prose-lg max-w-none">
-        {parts.map((part, index) => {
-          // Check if this part is a diagram marker
-          const lowerPart = part.toLowerCase().trim()
-          if (lowerPart === 'chemistry') {
-            return <ADHDChemistry key={`diagram-${index}`} />
-          }
-          if (lowerPart === 'iceberg') {
-            return <ADHDIceberg key={`diagram-${index}`} />
-          }
-          // Regular HTML content
-          return (
-            <div 
-              key={`content-${index}`}
-              dangerouslySetInnerHTML={{ __html: part }} 
-            />
-          )
-        })}
-      </article>
-    )
-  }
-
-  // Default: render content without diagrams
-  return (
-    <article
-      className="prose prose-lg max-w-none"
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
-    />
-  )
-}
 
 interface GuidePageProps {
   params: Promise<{ slug: string }>
@@ -92,7 +52,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
   return (
     <div className="animate-fade-in">
       {/* Header */}
-      <section className="pt-32 pb-12 bg-soft-cream">
+      <section className="pt-32 pb-6 bg-soft-cream">
         <div className="max-w-[800px] mx-auto px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-6" aria-label="Breadcrumb">
@@ -133,7 +93,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
       </section>
 
       {/* Content */}
-      <section className="py-12 lg:py-16 bg-soft-cream">
+      <section className="pt-6 pb-12 lg:pt-8 lg:pb-16 bg-soft-cream">
         <div className="max-w-[800px] mx-auto px-6 lg:px-8">
           <GuideContent htmlContent={htmlContent} slug={slug} />
         </div>
